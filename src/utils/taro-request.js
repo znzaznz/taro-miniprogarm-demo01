@@ -16,13 +16,6 @@ export default (options = { method: 'GET', data: {} }) => {
     }).then((res) => {
         const { statusCode, data } = res;
         if (statusCode >= 200 && statusCode < 300) {
-            if (data.msg !== 'success') {
-                Taro.showToast({
-                    title: `${res.data.msg}~` || res.data.code,
-                    icon: 'none',
-                    mask: true,
-                });
-            }
             return data;
         } else {
             throw new Error(`网络请求错误，状态码${statusCode}`);

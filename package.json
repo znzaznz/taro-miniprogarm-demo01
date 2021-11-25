@@ -59,6 +59,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "react-redux": "^7.2.6",
     "stylelint": "9.3.0",
+    "taro-iconfont-cli": "^3.3.0",
     "taro-ui": "3.0.0-alpha.3"
   }
 }

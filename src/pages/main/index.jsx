@@ -1,11 +1,21 @@
 import {Component} from 'react'
 import {View, Text, Button} from '@tarojs/components'
 import {connect} from "react-redux";
-import './index.scss'
-import {goNewPage, goPage} from "../../utils/utils";
+import {goNewPage} from "../../utils/utils";
 
-@connect(({users}) => ({users}))
+import './index.scss'
+import IconFont from "../../components/iconfont";
+
+@connect(({home}) => ({
+    title:home.title
+}))
 class Index extends Component {
+
+    constructor(props) {
+        super(props);
+        console.log(props.title);
+    }
+
     componentDidMount() {
         this.props.dispatch({
             type:'home/fetchGetData',
@@ -17,7 +27,6 @@ class Index extends Component {
         })
     }
 
-
     render() {
         return (
             <View className='index'>
@@ -26,6 +35,7 @@ class Index extends Component {
                     goNewPage('/pages/show/index') //用绝对路径
                 }}
                 >点我跳转</Button>
+                <IconFont name='staroff' />
             </View>
         )
     }
